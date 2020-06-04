@@ -190,12 +190,12 @@ ul.todo li .buttons button.complete:hover svg {
     fill: #25b99a; 
 }
 
-ul.todo#completed:not(:empty){
+ul.todo#completed {
     position: relative;
     padding: 60px 0 0 0;
 }
 
-ul.todo#completed:not(empty):before {
+ul.todo#completed:before {
     content: '';
     width: 150px;
     height: 1px;
@@ -208,3 +208,21 @@ ul.todo#completed:not(empty):before {
 /* Fix so svg only changes color when cursor hovers over the svg and not the button*/ 
 /* Add transitions to the buttons*/ 
 /*convert to sass*/
+
+ul.todo#completed:empty:after {
+    content: 'No completed tasks';
+}
+
+ul.todo#todo:empty:after {
+    content: 'No tasks in your to-do list ';
+    margin: 15px 0 0 0;
+}
+
+ul.todo#todo:after,
+ul.todo#completed:after {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
